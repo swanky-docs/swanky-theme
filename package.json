@@ -9,11 +9,13 @@
   "author": "Rod Leviton",
   "license": "MIT",
   "dependencies": {
+    "basscss": "^8.0.1",
     "cz-conventional-changelog": "1.1.6",
     "cz-customizable": "3.1.0",
     "exact-semver": "1.2.0",
     "ghooks": "1.2.1",
-    "semantic-release": "4.3.5"
+    "semantic-release": "4.3.5",
+    "validate-commit-msg": "2.6.1"
   },
   "config": {
     "ghooks": {
