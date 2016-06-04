@@ -1,0 +1,48 @@
+/*
+ * Swanky Theme
+ * Navigation
+ */
+ 
+.navigation > ul      
+  a
+    display block
+    position relative
+    text-transform uppercase
+    color #ccc
+    text-decoration none
+
+  li.active a
+    color #fff
+  
+  > li > a
+    padding 25px 20px
+    border-bottom 1px solid #272727
+
+  > li.active > a
+    background $brand-primary
+
+  // Sub navigation
+  li > ul
+    padding 20px 0
+    margin-bottom 0
+    background #202020
+    display none
+    border-bottom 1px solid #272727
+
+  li.active > ul
+    display block
+
+  li li.active a
+    &:before
+      content ' '
+      position absolute
+      left 20px
+      top 18px
+      width 6px
+      height 6px
+      border-radius 100%
+      background-color $brand-primary
+
+  li li > a
+    font-size 1.2rem
+    padding 15px 20px 15px 40px
