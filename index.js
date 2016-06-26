@@ -1,4 +1,6 @@
-module.hot.accept();
+if (__DEV__) {
+  module.hot.accept();
+}
 
 // Syntax highlighting
 require('prismjs');
