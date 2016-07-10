@@ -1,49 +1,16 @@
-@import './reset'
-@import './helpers'
-@import './variables'
-@import './basscss'
-@import './brand'
-@import './code'
-@import './typography'
-@import './navigation'
-@import './sidebar'
-@import './ngdocs'
-
 // Base
-html, body
-  height 100%
+@import './base/reset'
+@import './base/variables'
+@import './base/mixins'
+@import './base/helpers'
+@import './base/scaffolding'
 
-html
-  font-size 62.5%
-    
-body
-  font-size 1.4rem
-  font-family 'Open Sans', sans-serif
-  
-// Main
-.main
-  width 100%
-  padding 160px 40px 40px ($sidebar-width + 60)px
-        
-// Github
-.github
-  position fixed
-  z-index 15
-  right 40px
-  top 38px
-  width (66 / 2)px
-  height (64 / 2)px
-  background url('../img/github.png') no-repeat
-  background-size cover
-  display inline-block
+// TODO
+// Refactor into seperate files
+@import './basscss'
 
-.version
-  background #141414
-  color #fff
-  text-transform uppercase
-  font-size 1rem
-  position fixed
-  bottom 0
-  right 0
-  border-top-left-radius 6px
-  padding 6px 18px
+// Components
+@import './components/*'
+
+// Layouts
+@import './layouts/*'

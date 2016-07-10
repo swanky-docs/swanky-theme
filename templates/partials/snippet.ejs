@@ -6,8 +6,12 @@
       <span class="<%-styles.circle-%> <%-styles['circle-green']-%>"></span>
     </div>
   </div>
-  <div class="<%- isolateScopeCssWrapperClass -%>">
-    <div class="<%- isolateScopeCssClass -%>"><%- template -%></div>
+  <div class="<%- styles['example-wrapper'] -%>">
+    <div class="<%- isolateScopeCssWrapperClass -%>">
+      <div class="<%- isolateScopeCssClass -%>"><%- template -%></div>
+    </div>
   </div>
-  <pre class="line-numbers"><code class="language-markup"><%- encode(template) -%></code></pre>
+  <div class="<%- styles['code-wrapper'] -%>">
+    <pre class="line-numbers"><code class="language-markup"><%- encode(template) -%></code></pre>
+  </div>
 </div>

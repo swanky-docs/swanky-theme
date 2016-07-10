@@ -1,23 +1,28 @@
 <%- include('../partials/header.ejs') -%>
 
+<button id="navToggle" class="<%- styles['nav-toggle'] -%>" type="button">
+  <span class="<%- styles['icon-bar'] -%>"></span>
+  <span class="<%- styles['icon-bar'] -%>"></span>
+  <span class="<%- styles['icon-bar'] -%>"></span>
+</button>
+
+<div class="<%- styles.brand -%>"><a href="<%- meta.subdirectory -%>" class="<%- styles.logo -%>"></a></div>
+
 <% if (meta.repository) { %>
 <a href="<%- meta.repository -%>" title="<%-siteTitle-%> Github Repo" target="_blank" class="<%- styles.github -%>"></a>
 <% } %>
 
-<aside class="<%- styles.sidebar -%> <%- styles.col -%>">
-
-  <a href="/" class="<%- styles.brand -%>"><div class="<%- styles.logo -%>"></div><div class="<%- styles.text -%>">Swanky</div></a>
-
+<aside id="offCanvasNav" class="<%- styles.sidebar -%> <%- styles.col -%>">
   <nav class="<%-styles.navigation-%>">
     <ul class="<%-styles['list-reset'] -%>">
       <% nav.forEach((item) => { %>
         <li class="<%= (item.key === key || item.key === parentKey) ? styles.active : '' %>">
-        <a href="/<%-item.path-%>" title="<%-item.title-%>"><%-item.title-%></a>
+        <a href="<%= (meta.production) ? meta.subdirectory : '/' %><%-item.path-%>" title="<%-item.title-%>"><%-item.title-%></a>
         <% if (item.children) { %>
         <ul class="<%-styles['list-reset'] -%>">
           <% item.children.forEach((child) => { %>
           <li class="<%= (child.key === key) ? styles.active : '' %>">
-            <a href="/<%-child.path-%>" title="<%-child.title-%>">
+            <a href="<%= (meta.production) ? meta.subdirectory : '/' %><%-child.path-%>" title="<%-child.title-%>">
               <%-child.title-%>
             </a>
           </li>

@@ -2,13 +2,13 @@ if (__DEV__) {
   module.hot.accept();
 }
 
+import './js/nav';
+
 // Syntax highlighting
-require('prismjs');
-require('./css/prism-theme.css');
+import 'prismjs';
 
 // Line numbers
-require('prismjs/plugins/line-numbers/prism-line-numbers');
-require('prismjs/plugins/line-numbers/prism-line-numbers.css');
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
 
 // Base theme
-require('./css/index.styl');
+import './css/index.styl';
