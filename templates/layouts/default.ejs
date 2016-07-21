@@ -6,7 +6,7 @@
   <span class="<%- styles['icon-bar'] -%>"></span>
 </button>
 
-<div class="<%- styles.brand -%>"><a href="<%- meta.subdirectory -%>" class="<%- styles.logo -%>"></a></div>
+<div class="<%- styles.brand -%>"><a href="<%- meta.serverPath -%>" class="<%- styles.logo -%>"></a></div>
 
 <% if (meta.repository) { %>
 <a href="<%- meta.repository -%>" title="<%-siteTitle-%> Github Repo" target="_blank" class="<%- styles.github -%>"></a>
@@ -17,12 +17,12 @@
     <ul class="<%-styles['list-reset'] -%>">
       <% nav.forEach((item) => { %>
         <li class="<%= (item.key === key || item.key === parentKey) ? styles.active : '' %>">
-        <a href="<%= (meta.production) ? meta.subdirectory : '/' %><%-item.path-%>" title="<%-item.title-%>"><%-item.title-%></a>
+        <a href="<%= (meta.production) ? meta.serverPath : '/' %><%-item.path-%>" title="<%-item.title-%>"><%-item.title-%></a>
         <% if (item.children) { %>
         <ul class="<%-styles['list-reset'] -%>">
           <% item.children.forEach((child) => { %>
           <li class="<%= (child.key === key) ? styles.active : '' %>">
-            <a href="<%= (meta.production) ? meta.subdirectory : '/' %><%-child.path-%>" title="<%-child.title-%>">
+            <a href="<%= (meta.production) ? meta.serverPath : '/' %><%-child.path-%>" title="<%-child.title-%>">
               <%-child.title-%>
             </a>
           </li>
