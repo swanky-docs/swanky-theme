@@ -1,49 +1,69 @@
 {
   "name": "swanky-theme",
-  "description": "Default swanky theme",
-  "main": "index.js",
-  "scripts": {
-    "commit": "git-cz",
-    "test": "mocha test/spec/unit/*.spec.js -w",
-    "test:single": "istanbul cover _mocha -- -R spec test/spec/unit/*.spec.js",
-    "check-coverage": "istanbul check-coverage --statements 0 --branches 0 --functions 0 --lines 0",
-    "report-coverage": "cat ./coverage/coverage.json | codecov",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  },
-  "author": "Rod Leviton",
+  "description": "Default theme for Swanky",
   "license": "MIT",
-  "devDependencies": {
-    "chai": "3.5.0",
-    "codecov.io": "0.1.6",
-    "cz-conventional-changelog": "1.1.6",
-    "cz-customizable": "4.0.0",
-    "exact-semver": "1.2.0",
-    "ghooks": "1.2.1",
-    "istanbul": "0.4.3",
-    "mocha": "2.4.5",
-    "semantic-release": "4.3.5",
-    "sinon": "1.17.4",
-    "validate-commit-msg": "2.6.1"
+  "author": "Rod Leviton",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swanky-docs/swanky-theme.git"
+  },
+  "scripts": {
+    "pre-release": "npm-run-all verify test:coverage build ",
+    "build": "npm run clean:prod",
+    "check-coverage": "istanbul check-coverage --statements 0 --branches 0 --functions 0 --lines 0",
+    "clean:prod": "rimraf dist/",
+    "commit": "git-cz",
+    "dev": "npm run verify:watch",
+    "exact-semver": "exact-semver",
+    "report-coverage": "cat ./coverage/coverage.json | codecov",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "start": "npm run dev",
+    "test": "npm run test:unit",
+    "test:check-coverage": "istanbul check-coverage reports/coverage.json --config config/testUnit/istanbul.yml",
+    "test:coverage": "npm-run-all test:unit:once test:check-coverage --silent",
+    "test:unit": "chokidar 'test/**/*.js' 'test/**/*.js' -c 'npm run test:unit:once' --initial --silent",
+    "test:unit:once": "istanbul cover --config config/testUnit/istanbul.yml _mocha -- --opts config/testUnit/mocha.opts",
+    "verify": "npm run verify:js --silent",
+    "verify:js": "eslint -c config/verify/.eslintrc \"test/**/*.js\" \"test/**/*.js\" \"config/**/*.js\" && echo ✅ verify:js success",
+    "verify:js:watch": "chokidar 'test/**/*.js' 'test/**/*.js' 'config/**/*.js' -c 'npm run verify:js' --initial --silent",
+    "verify:watch": "npm run verify:js:watch --silent"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/release/commitMessageConfig.js"
+    },
+    "ghooks": {
+      "pre-commit": "npm run exact-semver",
+      "commit-msg": "./node_modules/cz-customizable-ghooks/index.js $2",
+      "pre-push": "npm-run-all verify test:coverage --silent"
+    }
   },
   "dependencies": {
     "basscss": "8.0.1",
     "postcss": "5.0.21",
     "prismjs": "1.5.0"
   },
-  "config": {
-    "ghooks": {
-      "pre-commit": "exact-semver",
-      "commit-msg": "validate-commit-msg"
-    },
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    },
-    "cz-customizable": {
-      "config": ".cz-config.js"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/swanky-docs/swanky-theme.git"
+  "devDependencies": {
+    "chai": "3.5.0",
+    "chokidar-cli": "1.2.0",
+    "codecov.io": "0.1.6",
+    "cz-conventional-changelog": "1.1.6",
+    "cz-customizable": "4.0.0",
+    "cz-customizable-ghooks": "1.1.2",
+    "eslint": "1.10.3",
+    "eslint-config-defaults": "8.0.2",
+    "exact-semver": "1.2.0",
+    "ghooks": "1.2.1",
+    "istanbul": "0.4.4",
+    "mocha": "2.5.3",
+    "npm-run-all": "2.1.1",
+    "rimraf": "2.5.2",
+    "semantic-release": "4.3.5",
+    "sinon": "1.17.4",
+    "validate-commit-msg": "2.6.1"
   }
 }
