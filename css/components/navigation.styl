@@ -52,3 +52,17 @@
   li li > a
     font-weight 300
     padding 12px 20px 12px 50px
+
+// Need global .active class for use with scrollspy
+:global
+  li li.active a
+    border-left none
+    &:before
+      content ' '
+      position absolute
+      left 20px
+      top 18px
+      width 6px
+      height 6px
+      border-radius 100%
+      background-color $brand-primary
