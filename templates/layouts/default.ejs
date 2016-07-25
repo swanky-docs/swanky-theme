@@ -22,9 +22,17 @@
         <ul class="<%-styles['list-reset'] -%>">
           <% item.children.forEach((child) => { %>
           <li class="<%= (child.key === key) ? styles.active : '' %>">
+
+            <% if (!meta.showSubSectionsOnParent) { %>
             <a href="<%= (meta.production) ? meta.serverPath : '/' %><%-child.path-%>" title="<%-child.title-%>">
               <%-child.title-%>
             </a>
+            <% } else { %>
+            <a href="#<%-child.key%>" title="<%-child.title-%>">
+              <%-child.title-%>
+            </a>
+            <% } %>
+
           </li>
           <% }); %>
         </ul>
