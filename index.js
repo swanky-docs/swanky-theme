@@ -6,6 +6,7 @@ if (__DEV__) {
 import './js/nav';
 import gumshoe from './js/libs/gumshoe';
 import smoothScroll from './js/libs/smooth-scroll';
+import accordion from './js/libs/accordion';
 
 // Syntax highlighting
 import 'prismjs';
@@ -18,6 +19,8 @@ import './css/index.styl';
 
 
 (() => {
+  accordion.init();
+  
   gumshoe.init({
     offset: 40, // Distance in pixels to offset calculations
   });
