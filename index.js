@@ -20,9 +20,10 @@ import './css/index.styl';
 
 (() => {
   accordion.init();
-  
+
   gumshoe.init({
     offset: 40, // Distance in pixels to offset calculations
+    activeClass: 'sw-active'
   });
 
   smoothScroll.init({

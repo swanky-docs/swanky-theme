@@ -48,10 +48,11 @@
 
   .li .li.active .a
     border-left none
+    background none
     &:before
       content ' '
       position absolute
-      left 20px
+      left 30px
       top 20px
       width 6px
       height 6px
@@ -71,20 +72,33 @@
     &:before
       content ' '
       position absolute
-      left 20px
+      left 30px
       top 18px
       width 6px
       height 6px
       border-radius 100%
-      background-color $brand-secondary
+      background-color $brand-primary
 
 .anchors
   @extend .clearfix
   margin-bottom 4rem
+  width: 200px;
+  right: 0;
+  position: fixed;
+  top: 160px;
+  display: none
 
-  a
+  @media screen and (min-width: $screen-is-bigger-than-tablet)
+    display block
+
+  .a
     display block
     float left
     background $alabaster
     padding: 1rem
     margin-right .5rem
+    margin-bottom .5rem
+
+:global
+  a.sw-active
+    color: $brand-primary!important

@@ -39,14 +39,27 @@
 
 <section class="<%- styles.main -%>">
   <article>
+
+    <% if (hasAnchors) { %>
     <div class="<%- styles.anchors -%>" data-gumshoe>
       <% contents.forEach((item, index) => { %>
-        <% if (item.title) { %>
-          <a href="#<%- item.key -%>" class="<%- styles.a -%>" data-scroll><%- item.title -%></a>
-        <% } %>
+      <% if (item.title) { %>
+      <a href="#<%- item.key -%>" class="<%- styles.a -%>" data-scroll><%- item.title -%></a>
+      <% } %>
       <% }); %>
     </div>
+    <% } %>
+    <% if (parentKey) { %>
+    <% meta.navigation.forEach((item, index) => { %>
+    <% if (item.key === parentKey) { %>
+    <h1 class="<%-styles['page-header']-%> <%- styles.h1 -%>" data-gumshoe-header><%- item.title -%></h1>
+    <h2 class="<%- styles.h2 -%>"><%- title -%></h2>
+    <% } %>
+    <% }); %>
+    <% } else { %>
     <h1 class="<%-styles['page-header']-%> <%- styles.h1 -%>" data-gumshoe-header><%- title -%></h1>
+    <% } %>
+
     <% contents.forEach((item, index) => { %>
     <%- item.content -%>
     <% }); %>
