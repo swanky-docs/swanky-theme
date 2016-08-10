@@ -39,9 +39,11 @@
 
 <section class="<%- styles.main -%>">
   <article>
-    <div data-gumshoe>
+    <div class="<%- styles.anchors -%>" data-gumshoe>
       <% contents.forEach((item, index) => { %>
-      <a href="#<%- item.key -%>" data-scroll><%- item.title -%></a>
+        <% if (item.title) { %>
+          <a href="#<%- item.key -%>" class="<%- styles.a -%>" data-scroll><%- item.title -%></a>
+        <% } %>
       <% }); %>
     </div>
     <h1 class="<%-styles['page-header']-%> <%- styles.h1 -%>" data-gumshoe-header><%- title -%></h1>
