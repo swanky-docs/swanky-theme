@@ -5,8 +5,8 @@
   "author": "Rod Leviton",
   "main": "index.js",
   "repository": {
-    "type": "git",
-    "url": "https://github.com/swanky-docs/swanky-theme.git"
+    "url": "https://github.com/swanky-docs/swanky-theme.git",
+    "type": "git"
   },
   "scripts": {
     "pre-release": "npm-run-all verify test:coverage build ",
@@ -38,29 +38,29 @@
     },
     "ghooks": {
       "pre-commit": "npm run exact-semver",
-      "commit-msg": "./node_modules/cz-customizable-ghooks/index.js $2",
       "pre-push": "npm-run-all verify test:coverage --silent"
     }
   },
   "dependencies": {
-    "basscss": "8.0.1",
-    "postcss": "5.0.21",
-    "prismjs": "1.5.0"
+    "basscss": "8.0.3",
+    "postcss": "5.2.5",
+    "prismjs": "1.5.1"
   },
   "devDependencies": {
     "chokidar-cli": "1.2.0",
     "codecov.io": "0.1.6",
-    "cz-conventional-changelog": "1.1.6",
+    "cz-conventional-changelog": "1.2.0",
     "cz-customizable": "4.0.0",
-    "cz-customizable-ghooks": "1.1.2",
-    "eslint": "1.10.3",
-    "eslint-config-defaults": "8.0.2",
+    "cz-customizable-ghooks": "1.3.0",
+    "eslint": "3.8.1",
+    "eslint-config-defaults": "9.0.0",
     "exact-semver": "1.2.0",
-    "ghooks": "1.2.1",
-    "istanbul": "0.4.4",
-    "mocha": "2.5.3",
-    "npm-run-all": "2.1.1",
-    "rimraf": "2.5.2",
+    "ghooks": "1.3.2",
+    "istanbul": "0.4.5",
+    "mocha": "3.1.2",
+    "npm-run-all": "3.1.1",
+    "rimraf": "2.5.4",
     "semantic-release": "4.3.5"
-  }
+  },
+  "version": "1.0.0"
 }
