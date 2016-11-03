@@ -7,7 +7,7 @@ Default theme for [Swanky Docs](https://swanky-docs.github.io/).
 Prerequisites: [Node.js](https://nodejs.org/en/) (>=4.x, 6.x preferred) and [Git](https://git-scm.com/).
 
 ``` bash
-$ npm install swanky-theme
+$ npm install swanky-theme --save
 ```
 
 ### Usage
