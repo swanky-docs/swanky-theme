@@ -44,7 +44,7 @@
   "dependencies": {
     "basscss": "8.0.3",
     "postcss": "5.2.5",
-    "prismjs": "1.5.1"
+    "highlightjs": "9.8.0"
   },
   "devDependencies": {
     "chokidar-cli": "1.2.0",
