@@ -9,13 +9,14 @@ import smoothScroll from './js/libs/smooth-scroll';
 import accordion from './js/libs/accordion';
 
 // Syntax highlighting
-import 'highlightjs';
+import hljs from 'highlightjs';
 
 // Base theme
 import './css/index.styl';
 
-
 (() => {
+  hljs.initHighlighting();
+
   accordion.init();
 
   gumshoe.init({
