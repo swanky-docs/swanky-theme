@@ -1,7 +1,3 @@
-if (__DEV__) {
-  module.hot.accept();
-}
-
 // Nav
 import './js/nav';
 import gumshoe from './js/libs/gumshoe';
